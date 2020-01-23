@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Rounter from 'vue-router';
 import Login from './components/Login.vue';
+import './assets/css/global.css'
 
 Vue.use(Rounter);
 
