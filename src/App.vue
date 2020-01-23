@@ -1,7 +1,6 @@
 <template>
   <div id="app">
   <!-- 路由占位符 -->
-  sss
   <router-view></router-view>
    <router-view></router-view>
     <router-view></router-view>
