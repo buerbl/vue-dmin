@@ -27,3 +27,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ```java
 npm install less less-loader --save-dev
 ```
+
+## 表单验证重置
+
+重置需要与验证一起
