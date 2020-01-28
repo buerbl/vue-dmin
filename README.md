@@ -31,3 +31,7 @@ npm install less less-loader --save-dev
 ## 表单验证重置
 
 重置需要与验证一起
+
+## 返回 promise时候
+
+使用异步请求

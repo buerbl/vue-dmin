@@ -13,7 +13,7 @@
           <el-input type="password" v-model="loginFrom.password" prefix-icon="el-icon-search"></el-input>
         </el-form-item>
         <el-form-item class="btn">
-          <el-button type="primary">登录</el-button>
+          <el-button type="primary" @click="login">登录</el-button>
           <el-button type="info" @click="resetLoginFrom">重置</el-button>
         </el-form-item>
       </el-form>
@@ -32,11 +32,11 @@ export default {
       rules: {
           username: [
             { required: true, message: '请输入用户名', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+            { min: 3, max: 15, message: '长度在 3 到 15 个字符', trigger: 'blur' }
           ],
           password: [
             { required: true, message: '请输入密码', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+            { min: 3, max: 15, message: '长度在 3 到 15 个字符', trigger: 'blur' }
           ],
       }
     };
@@ -46,6 +46,19 @@ export default {
       this.$refs.loginRef.resetFields();
       console.log(this.$refs.loginRef);
       
+    },
+    login(){
+      this.$refs.loginRef.validate(async valid =>{
+          console.log(valid);
+          if (!valid) return;
+          const rs = await this.$http.post("", this.loginFrom);
+          console.log(rs.data);
+          if(rs.data.code == 200){
+            return this.$message.success('登录成功');
+          }
+          
+
+      });
     }
   }
 };
