@@ -4,16 +4,21 @@
       <div class="avatar_box">
         <img src="../assets/logo.png" alt />
       </div>
-      <el-form label-width="0px" class="login_form">
+      <!-- :model 绑定数据 -->
+      <el-form ref="loginRef" :model="loginFrom" label-width="0px" class="login_form">
         <el-form-item>
-          <el-input prefix-icon="el-icon-search" ></el-input>
+          <el-input v-model="loginFrom.username" prefix-icon="el-icon-search" >
+
+          </el-input>
         </el-form-item>
         <el-form-item>
-          <el-input prefix-icon="el-icon-search"></el-input>
+          <el-input type="password" v-model="loginFrom.password" prefix-icon="el-icon-search">
+
+          </el-input>
         </el-form-item>
         <el-form-item class="btn">
            <el-button  type="primary">登录</el-button>
-             <el-button type="info">注销</el-button>
+             <el-button type="info" @click="resetLoginFrom">重置</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -21,7 +26,24 @@
 </template>
 
 <script>
-export default {};
+export default {
+    data(){
+        return{
+            loginFrom:{
+                username:'a',
+                password:'a'
+            }
+        }
+    },
+    methods:{
+        resetLoginFrom(){
+            console.log(this);
+
+            this.$refs.loginRef.resetFields();
+            
+        }
+    }
+};
 </script>
 
 
