@@ -5,20 +5,16 @@
         <img src="../assets/logo.png" alt />
       </div>
       <!-- :model 绑定数据 -->
-      <el-form ref="loginRef" :model="loginFrom" label-width="0px" class="login_form">
-        <el-form-item>
-          <el-input v-model="loginFrom.username" prefix-icon="el-icon-search" >
-
-          </el-input>
+      <el-form ref="loginRef" :model="loginFrom" :rules="rules" label-width="0px" class="login_form">
+        <el-form-item prop="username">
+          <el-input v-model="loginFrom.username" prefix-icon="el-icon-search"></el-input>
         </el-form-item>
-        <el-form-item>
-          <el-input type="password" v-model="loginFrom.password" prefix-icon="el-icon-search">
-
-          </el-input>
+        <el-form-item prop="password">
+          <el-input type="password" v-model="loginFrom.password" prefix-icon="el-icon-search"></el-input>
         </el-form-item>
         <el-form-item class="btn">
-           <el-button  type="primary">登录</el-button>
-             <el-button type="info" @click="resetLoginFrom">重置</el-button>
+          <el-button type="primary">登录</el-button>
+          <el-button type="info" @click="resetLoginFrom">重置</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -27,22 +23,31 @@
 
 <script>
 export default {
-    data(){
-        return{
-            loginFrom:{
-                username:'a',
-                password:'a'
-            }
-        }
-    },
-    methods:{
-        resetLoginFrom(){
-            console.log(this);
-
-            this.$refs.loginRef.resetFields();
-            
-        }
+  data() {
+    return {
+      loginFrom: {
+        username: "a",
+        password: "a"
+      },
+      rules: {
+          username: [
+            { required: true, message: '请输入用户名', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+          password: [
+            { required: true, message: '请输入密码', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+      }
+    };
+  },
+  methods: {
+    resetLoginFrom() {
+      this.$refs.loginRef.resetFields();
+      console.log(this.$refs.loginRef);
+      
     }
+  }
 };
 </script>
 
@@ -83,16 +88,16 @@ export default {
   }
 }
 
-.btn{
-    display: flex;
-    justify-content: flex-end;
+.btn {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.login_form{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 0 20px;
-    box-sizing: border-box;
+.login_form {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 </style>
