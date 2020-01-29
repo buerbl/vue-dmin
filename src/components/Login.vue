@@ -26,8 +26,8 @@ export default {
   data() {
     return {
       loginFrom: {
-        username: "a",
-        password: "a"
+        username: "admin",
+        password: "123456"
       },
       rules: {
           username: [
@@ -53,9 +53,12 @@ export default {
           if (!valid) return;
           const rs = await this.$http.post("", this.loginFrom);
           console.log(rs.data);
-          if(rs.data.code == 200){
-            return this.$message.success('登录成功');
+          if(rs.data.code != 200){
+            return this.$message.success('登录失败');
           }
+          this.$message.success("登录成功");
+          window.sessionStorage.setItem("token", rs.data.code);
+          this.$router.push("/home");
           
 
       });
