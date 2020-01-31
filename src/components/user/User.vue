@@ -26,11 +26,44 @@
         <el-table-column label="姓名" prop></el-table-column>
         <el-table-column label="姓名" prop></el-table-column>
       </el-table>
+
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="queryInfo.pagenum"
+        :page-sizes="[100, 200, 300, 400]"
+        :page-size="100"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="400"
+      ></el-pagination>
     </el-card>
   </div>
 </template>
 <script>
-export default {};
+export default {
+
+  data() {
+    return {
+      queryInfo: {
+        pagenum: 1,
+        pagesize: 2,
+      },
+    };
+  },
+
+  methods: {
+
+    handleSizeChange() {
+
+    },
+
+    handleCurrentChange() {
+
+    },
+  },
+
+
+};
 </script>
 <style lang="less" scoped>
 </style>
