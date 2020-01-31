@@ -10,7 +10,7 @@ import './assets/css/global.css';
 
 Vue.use(Rounter);
 
-export default new Rounter({
+const router = new Rounter({
   routes: [
     { path: '/', redirect: '/login' },
     { path: '/login', component: Login },
@@ -28,3 +28,19 @@ export default new Rounter({
     },
   ],
 });
+
+// 路由导航卫士
+router.beforeEach((to, from, next) => {
+  // to 访问
+  // from 从哪里来的路径
+  // next 函数，表示放行
+
+  if (to.path === '/login') return next();
+  // 获取token
+  const tokenstr = window.sessionStorage.getItem('token');
+  if (!tokenstr) return next('/login');
+  next();
+});
+
+
+export default router;

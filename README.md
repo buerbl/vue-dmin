@@ -8,7 +8,7 @@
 ```
 npm install
 ```
-安装依赖
+安装依赖，生成 node_modules 文件夹
 
 ### 启动项目
 ```
@@ -49,3 +49,6 @@ module.exports = {
 Snipaste
 
 不仅仅是取色工具
+
+## 没有 token 则登录
+

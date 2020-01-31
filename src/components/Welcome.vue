@@ -1,6 +1,6 @@
 <template>
     <div>
-        welcome
+        welcome,这里是欢迎页
     </div>
 </template>
 <script>
