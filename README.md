@@ -4,35 +4,19 @@
 
 ![](http://javahouse.xyz/20200131145423.png)
 
-## Project setup
+## 项目初始化
 ```
 npm install
 ```
 安装依赖
 
-### Compiles and hot-reloads for development
+### 启动项目
 ```
 npm run serve
 ```
 启动项目
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration1
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-##  安装less
-```java
-npm install less less-loader --save-dev
-```
 
 ## 表单验证重置
 
