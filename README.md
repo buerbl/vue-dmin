@@ -35,3 +35,16 @@ npm install less less-loader --save-dev
 ## 返回 promise时候
 
 使用异步请求
+
+## 修改端口号
+
+在 vue.config.js 文件下（没有就新建）
+
+```js
+module.exports = {
+    devServer: {
+      port: 8989,
+    },
+    lintOnSave: false,
+  };
+```
