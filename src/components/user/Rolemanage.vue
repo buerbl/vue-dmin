@@ -26,7 +26,7 @@
         <el-table-column label="姓名" prop></el-table-column>
       </el-table>
 
-       <el-pagination
+      <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
         :current-page="queryInfo.pagenum"
@@ -41,28 +41,20 @@
 
 <script>
 export default {
-
   data() {
     return {
       queryInfo: {
         pagenum: 1,
-        pagesize: 2,
-      },
+        pagesize: 2
+      }
     };
   },
 
   methods: {
+    handleSizeChange() {},
 
-    handleSizeChange() {
-
-    },
-
-    handleCurrentChange() {
-
-    },
-  },
-
-
+    handleCurrentChange() {}
+  }
 };
 </script>
 

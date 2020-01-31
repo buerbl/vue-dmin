@@ -5,7 +5,13 @@
         <img src="../assets/logo.png" alt />
       </div>
       <!-- :model 绑定数据 -->
-      <el-form ref="loginRef" :model="loginFrom" :rules="rules" label-width="0px" class="login_form">
+      <el-form
+        ref="loginRef"
+        :model="loginFrom"
+        :rules="rules"
+        label-width="0px"
+        class="login_form"
+      >
         <el-form-item prop="username">
           <el-input v-model="loginFrom.username" prefix-icon="el-icon-search"></el-input>
         </el-form-item>
@@ -30,14 +36,14 @@ export default {
         password: "123456"
       },
       rules: {
-          username: [
-            { required: true, message: '请输入用户名', trigger: 'blur' },
-            { min: 3, max: 15, message: '长度在 3 到 15 个字符', trigger: 'blur' }
-          ],
-          password: [
-            { required: true, message: '请输入密码', trigger: 'blur' },
-            { min: 3, max: 15, message: '长度在 3 到 15 个字符', trigger: 'blur' }
-          ],
+        username: [
+          { required: true, message: "请输入用户名", trigger: "blur" },
+          { min: 3, max: 15, message: "长度在 3 到 15 个字符", trigger: "blur" }
+        ],
+        password: [
+          { required: true, message: "请输入密码", trigger: "blur" },
+          { min: 3, max: 15, message: "长度在 3 到 15 个字符", trigger: "blur" }
+        ]
       }
     };
   },
@@ -45,22 +51,19 @@ export default {
     resetLoginFrom() {
       this.$refs.loginRef.resetFields();
       console.log(this.$refs.loginRef);
-      
     },
-    login(){
-      this.$refs.loginRef.validate(async valid =>{
-          console.log(valid);
-          if (!valid) return;
-          const rs = await this.$http.post("", this.loginFrom);
-          console.log(rs.data);
-          if(rs.data.code != 200){
-            return this.$message.success('登录失败');
-          }
-          this.$message.success("登录成功");
-          window.sessionStorage.setItem("token", rs.data.code);
-          this.$router.push("/home");
-          
-
+    login() {
+      this.$refs.loginRef.validate(async valid => {
+        console.log(valid);
+        if (!valid) return;
+        const rs = await this.$http.post("", this.loginFrom);
+        console.log(rs.data);
+        if (rs.data.code != 200) {
+          return this.$message.success("登录失败");
+        }
+        this.$message.success("登录成功");
+        window.sessionStorage.setItem("token", rs.data.code);
+        this.$router.push("/home");
       });
     }
   }

@@ -1,13 +1,8 @@
 <template>
-    <div>
-        welcome,这里是欢迎页
-    </div>
+  <div>welcome,这里是欢迎页</div>
 </template>
 <script>
-export default {
-
-};
+export default {};
 </script>
 <style scoped>
-
 </style>

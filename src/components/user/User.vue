@@ -41,28 +41,21 @@
 </template>
 <script>
 export default {
-
   data() {
     return {
       queryInfo: {
         pagenum: 1,
-        pagesize: 2,
-      },
+        
+        pagesize: 2
+      }
     };
   },
 
   methods: {
+    handleSizeChange() {},
 
-    handleSizeChange() {
-
-    },
-
-    handleCurrentChange() {
-
-    },
-  },
-
-
+    handleCurrentChange() {}
+  }
 };
 </script>
 <style lang="less" scoped>
