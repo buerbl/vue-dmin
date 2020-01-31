@@ -26,7 +26,7 @@
             <el-menu-item index="user">用户列表</el-menu-item>
 
           </el-submenu>
-          <el-submenu index="2">
+          <el-submenu index="2" >
             <template slot="title">
               <i class="el-icon-menu"></i>
               <span>权限管理</span>

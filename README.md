@@ -43,3 +43,9 @@ module.exports = {
 ## package.json
 
 文件存在需要引入的插件依赖,相当后端的maven
+
+## 16 进制取色工具
+
+Snipaste
+
+不仅仅是取色工具

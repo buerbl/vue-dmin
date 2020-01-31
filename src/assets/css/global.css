@@ -10,3 +10,7 @@ body,
 .el-breadcrumb{
     margin-bottom: 15px;
 }
+
+.el-table{
+    margin-top: 15px;
+}

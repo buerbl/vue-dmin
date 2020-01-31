@@ -6,15 +6,26 @@
       <el-breadcrumb-item>用户列表</el-breadcrumb-item>
     </el-breadcrumb>
 
-    <el-card >
+    <el-card>
+      <!-- 搜索 -->
       <el-row :gutter="20">
         <el-col :span="7">
-          <el-input placeholder="请输入内容"></el-input>
+          <el-input placeholder="请输入内容">
+            <el-button slot="append" icon="el-icon-search"></el-button>
+          </el-input>
         </el-col>
         <el-col :span="4">
-            <el-button type="primary">添加用户</el-button>
+          <el-button type="primary">添加用户</el-button>
         </el-col>
       </el-row>
+
+      <!-- 表格 -->
+      <el-table border stripe>
+        <el-table-column type="index"></el-table-column>
+        <el-table-column label="姓名" prop></el-table-column>
+        <el-table-column label="姓名" prop></el-table-column>
+        <el-table-column label="姓名" prop></el-table-column>
+      </el-table>
     </el-card>
   </div>
 </template>
