@@ -15,6 +15,7 @@
           background-color="#545c64"
           text-color="#fff"
           active-text-color="#ffd04b"
+          unique-opened
         >
           <el-submenu index="1">
             <template slot="title">
@@ -79,6 +80,9 @@ export default {
 }
 .el-aside {
   background-color: #323744;
+  .el-menu{
+      border-right: none;
+  }
 }
 .el-main {
   background-color: #eaedf2;
