@@ -48,3 +48,8 @@ module.exports = {
     lintOnSave: false,
   };
 ```
+
+
+## package.json
+
+文件存在需要引入的插件依赖,相当后端的maven
