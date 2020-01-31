@@ -3,7 +3,7 @@
     <!-- 头部区域 -->
     <el-header>
       <div>
-        <span>后台管理系统</span>
+        <span>权限管理系统</span>
       </div>
       <el-button type="info" @click="logout">退出</el-button>
     </el-header>
@@ -16,43 +16,30 @@
           text-color="#fff"
           active-text-color="#ffd04b"
           unique-opened
+          router
         >
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-location"></i>
-              <span>导航一</span>
+              <span>用户管理</span>
             </template>
-            <el-menu-item index="1-1">选项1</el-menu-item>
-            <el-menu-item index="1-2">选项2</el-menu-item>
+            <el-menu-item index="user">用户列表</el-menu-item>
+
           </el-submenu>
           <el-submenu index="2">
             <template slot="title">
               <i class="el-icon-menu"></i>
-              <span>导航二</span>
+              <span>权限管理</span>
             </template>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-          </el-submenu>
-          <el-submenu index="3">
-            <template slot="title">
-              <i class="el-icon-document"></i>
-              <span>导航三</span>
-            </template>
-            <el-menu-item index="3-1">选项1</el-menu-item>
-            <el-menu-item index="3-2">选项2</el-menu-item>
-          </el-submenu>
-          <el-submenu index="4">
-            <template slot="title">
-              <i class="el-icon-setting"></i>
-              <span>导航四</span>
-            </template>
-            <el-menu-item index="4-1">选项1</el-menu-item>
-            <el-menu-item index="4-2">选项2</el-menu-item>
+            <el-menu-item index="role">角色列表</el-menu-item>
+            <el-menu-item index="role-manage">权限列表</el-menu-item>
           </el-submenu>
         </el-menu>
       </el-aside>
       <!-- 右侧内容主体 -->
-      <el-main>Main</el-main>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
     </el-container>
   </el-container>
 </template>
@@ -60,8 +47,10 @@
 <script>
 export default {
   methods: {
-    logout() {}
-  }
+    logout() {
+
+    },
+  },
 };
 </script>
 

@@ -4,11 +4,13 @@
 ```
 npm install
 ```
+安装依赖
 
 ### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
+启动项目
 
 ### Compiles and minifies for production
 ```
