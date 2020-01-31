@@ -1,4 +1,8 @@
-# vue-admin
+# 基于 vue 的权限管理系统
+
+## 效果
+
+![](http://javahouse.xyz/20200131145423.png)
 
 ## Project setup
 ```
