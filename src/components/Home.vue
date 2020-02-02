@@ -48,6 +48,7 @@ export default {
   methods: {
     logout() {
       window.sessionStorage.clear();
+      this.$http.get("/logout", "");
       this.$router.push("login");
     }
   }

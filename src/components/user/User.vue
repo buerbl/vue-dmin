@@ -15,7 +15,7 @@
           </el-input>
         </el-col>
         <el-col :span="4">
-          <el-button type="primary">添加用户</el-button>
+          <el-button type="primary" @click="click1">添加用户</el-button>
         </el-col>
       </el-row>
 
@@ -44,8 +44,8 @@ export default {
   data() {
     return {
       queryInfo: {
-        pagenum: 1,
-        
+        authorization: "2",
+
         pagesize: 2
       }
     };
@@ -54,7 +54,17 @@ export default {
   methods: {
     handleSizeChange() {},
 
-    handleCurrentChange() {}
+    handleCurrentChange() {},
+
+    async click1() {
+      const rs = await this.$http.post("/app", this.queryInfo);
+      console.log(rs.data);
+      if (!rs.data) {
+        return this.$message.error("失败");
+      }
+
+      this.$message.success("成功");
+    }
   }
 };
 </script>

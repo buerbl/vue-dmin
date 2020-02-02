@@ -3,14 +3,23 @@ import App from './App.vue';
 import router from './router';
 import './plugins/element.js';
 import axios from 'axios';
+import qs from 'qs'
+import VueCookies from 'vue-cookies'
 
+
+
+Vue.use(VueCookies)
 Vue.config.productionTip = false;
-axios.defaults.baseURL = 'https://api.apiopen.top/getTangPoetry?page=1&count=20';
+axios.defaults.baseURL = 'http://localhost:8080';
+axios.defaults.headers['Content-Type'] = 'application/json';
 axios.interceptors.request.use(config =>{
+  console.log("config",config);
+  config.headers['authorization']  = window.sessionStorage.getItem('token');
+  
   console.log(config);
-  config.headers.Authorization  = window.sessionStorage.getItem('token');
   return config;
-})
+});
+
 Vue.prototype.$http = axios;
 
 

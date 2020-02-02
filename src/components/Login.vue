@@ -12,8 +12,8 @@
         label-width="0px"
         class="login_form"
       >
-        <el-form-item prop="username">
-          <el-input v-model="loginFrom.username" prefix-icon="el-icon-search"></el-input>
+        <el-form-item prop="name">
+          <el-input v-model="loginFrom.name" prefix-icon="el-icon-search"></el-input>
         </el-form-item>
         <el-form-item prop="password">
           <el-input type="password" v-model="loginFrom.password" prefix-icon="el-icon-search"></el-input>
@@ -32,11 +32,11 @@ export default {
   data() {
     return {
       loginFrom: {
-        username: "admin",
+        name: "root",
         password: "123456"
       },
       rules: {
-        username: [
+        name: [
           { required: true, message: "请输入用户名", trigger: "blur" },
           { min: 3, max: 15, message: "长度在 3 到 15 个字符", trigger: "blur" }
         ],
@@ -54,15 +54,15 @@ export default {
     },
     login() {
       this.$refs.loginRef.validate(async valid => {
-        console.log(valid);
+        console.log("valid", valid);
         if (!valid) return;
-        const rs = await this.$http.post("", this.loginFrom);
+        const rs = await this.$http.post("/login", this.loginFrom);
         console.log(rs.data);
-        if (rs.data.code != 200) {
-          return this.$message.success("登录失败");
+        if (!rs.data) {
+          return this.$message.error("登录失败");
         }
         this.$message.success("登录成功");
-        window.sessionStorage.setItem("token", rs.data.code);
+        window.sessionStorage.setItem("token", rs.data);
         this.$router.push("/home");
       });
     }
