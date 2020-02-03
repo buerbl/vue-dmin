@@ -52,3 +52,6 @@ Snipaste
 
 ## 没有 token 则登录
 
+## 箭头函数应用
+
+处理 axios 的Promise

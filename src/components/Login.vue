@@ -53,17 +53,24 @@ export default {
       console.log(this.$refs.loginRef);
     },
     login() {
-      this.$refs.loginRef.validate(async valid => {
+      this.$refs.loginRef.validate(valid => {
         console.log("valid", valid);
         if (!valid) return;
-        const rs = await this.$http.post("/login", this.loginFrom);
-        console.log(rs.data);
-        if (!rs.data) {
-          return this.$message.error("登录失败");
-        }
-        this.$message.success("登录成功");
-        window.sessionStorage.setItem("token", rs.data);
-        this.$router.push("/home");
+        const rs = this.$http
+          .post("/login", this.loginFrom)
+          .then(res => {
+            console.log("response", res);
+            if (res.data.code != 200) {
+              return this.$message.error("登录失败");
+            }
+            this.$message.success("登录成功");
+            window.sessionStorage.setItem("token", res.data.data);
+            this.$router.push("/home");
+          })
+          .catch(res => {
+            console.log("error", res);
+            this.$message.error("服务器繁忙");
+          });
       });
     }
   }

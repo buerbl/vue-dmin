@@ -56,14 +56,20 @@ export default {
 
     handleCurrentChange() {},
 
-    async click1() {
-      const rs = await this.$http.post("/app", this.queryInfo);
-      console.log(rs.data);
-      if (!rs.data) {
-        return this.$message.error("失败");
-      }
-
-      this.$message.success("成功");
+    click1() {
+      this.$http
+        .post("/app")
+        .then(res => {
+          console.log("res",res);
+          if (!res.data) {
+            return this.$message.error("失败");
+          }
+          console.log(res.data);
+          this.$message.success("成功");
+        })
+        .catch(res => {
+          this.$message.error("网络繁忙");
+        });
     }
   }
 };
