@@ -14,8 +14,14 @@ npm install
 ```
 npm run serve
 ```
-启动项目
+### 打包项目
+```
+ npm run build
+```
 
+## 在线访问
+
+[demo](http://47.105.202.146:8081/)
 
 
 ## 表单验证重置
