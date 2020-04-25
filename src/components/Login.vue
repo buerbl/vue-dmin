@@ -91,7 +91,7 @@ export default {
   border-radius: 3px;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 25%;
   transform: translate(-50%);
 }
 
