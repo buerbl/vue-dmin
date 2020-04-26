@@ -62,3 +62,7 @@ Snipaste
 
 ## element ui
 控件来源
+
+## 自定义指令
+
+btnPermissions.js -》 main.js

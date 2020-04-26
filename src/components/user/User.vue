@@ -15,7 +15,9 @@
           </el-input>
         </el-col>
         <el-col :span="4">
-          <el-button type="primary" @click="click1">查找用户</el-button>
+          
+        
+          <el-button type="primary" @click="click1"  v-has="200">查找用户</el-button>
         </el-col>
       </el-row>
       <!-- 表格 -->
@@ -43,6 +45,7 @@
 export default {
   data() {
     return {
+     
       tableData: {
         shiroUserList:[
           {
@@ -55,7 +58,7 @@ export default {
         pagesize: null,
         total: null,
         pagenum:1,
-        size:10
+        size:10,
       }
     };
   },

@@ -64,7 +64,9 @@ export default {
               return this.$message.error("登录失败");
             }
             this.$message.success("登录成功");
+            console.log("sssss", res.data)
             window.sessionStorage.setItem("token", res.data.data);
+            window.sessionStorage.setItem("btnPermissions", res.data.code)
             this.$router.push("/home");
           })
           .catch(res => {
