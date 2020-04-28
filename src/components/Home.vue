@@ -18,21 +18,28 @@
           unique-opened
           router
         >
-          <el-submenu index="1">
+          <el-submenu :index="item.pid + ''" v-for="item in menuList" :key="item.pid">
             <template slot="title">
               <i class="el-icon-location"></i>
-              <span>用户管理</span>
+              <span>{{item.typeName}}</span>
             </template>
-            <el-menu-item index="user">用户列表</el-menu-item>
+            <!-- <el-menu-item index="user">用户列表</el-menu-item> -->
+            <el-menu-item
+              :index="subItem.typePath +''"
+              v-for="subItem in item.children"
+              :key="subItem.pid"
+            >
+              <span>{{subItem.typeName}}</span>
+            </el-menu-item>
           </el-submenu>
-          <el-submenu index="2">
+          <!-- <el-submenu index="2">
             <template slot="title">
               <i class="el-icon-menu"></i>
               <span>权限管理</span>
             </template>
             <el-menu-item index="role">角色列表</el-menu-item>
             <el-menu-item index="role-manage">权限列表</el-menu-item>
-          </el-submenu>
+          </el-submenu>-->
         </el-menu>
       </el-aside>
       <!-- 右侧内容主体 -->
@@ -45,11 +52,26 @@
 
 <script>
 export default {
+  data() {
+    return {
+      // 左侧菜单数据
+      menuList: []
+    };
+  },
+  created() {
+    this.getMenuList();
+  },
   methods: {
     logout() {
       window.sessionStorage.clear();
       this.$http.get("/logout", "");
       this.$router.push("login");
+    },
+    getMenuList() {
+      let btnPermissionsStr = sessionStorage.getItem("btnPermissions");
+      btnPermissionsStr = JSON.parse(btnPermissionsStr);
+      this.menuList = btnPermissionsStr;
+      console.log("menuList", this.menuList);
     }
   }
 };

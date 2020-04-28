@@ -10,12 +10,10 @@
       <el-row :gutter="20">
         <el-col :span="7">
           <el-input placeholder="请输入内容">
-            <el-button slot="append" icon="el-icon-search"></el-button>
           </el-input>
         </el-col>
-        <el-col :span="4">
-          <el-button type="primary">添加权限</el-button>
-        </el-col>
+                <el-button type="primary" @click="click1">搜索权限</el-button>
+        <el-button type="primary" v-has="role-manage">添加权限</el-button>
       </el-row>
 
       <!-- 表格 -->

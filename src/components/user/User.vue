@@ -36,9 +36,9 @@
         <el-table-column label="操作" width="130">
           <template slot-scope="scope">
             <!--修改按钮-->
-            <el-button type="primary" icon="el-icon-edit" size="mini"></el-button>
+            <el-button type="primary" v-has="user-update" icon="el-icon-edit" size="mini"></el-button>
             <!--删除按钮-->
-            <el-button type="danger" v-has="200" icon="el-icon-delete" size="mini"></el-button>
+            <el-button type="danger" v-has="user-del" icon="el-icon-delete" size="mini"></el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -106,7 +106,7 @@ export default {
         .then(res => {
           console.log("res.data.code", res.data.code);
           if (res.data.code != 200) {
-            return this.$message.error("失败");
+            return this.$message.error(res.data.data);
           }
           console.log("res.data.data", res.data.data);
           this.$message.success("成功");
@@ -128,7 +128,7 @@ export default {
         .then(res => {
           console.log("res.data.code", res.data.code);
           if (res.data.code != 200) {
-            return this.$message.error("失败");
+            return this.$message.error(res.data.data);
           }
           console.log("res.data.data", res.data.data);
           this.$message.success("成功");
