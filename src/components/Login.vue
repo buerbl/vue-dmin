@@ -72,8 +72,8 @@ export default {
             }
             this.$message.success("登录成功");
             console.log("sssss", res.data)
-            window.sessionStorage.setItem("token", res.data.data);
-            window.sessionStorage.setItem("btnPermissions", res.data.code)
+            window.sessionStorage.setItem("token", res.data.data.session);
+            window.sessionStorage.setItem("btnPermissions", JSON.stringify(res.data.data.permissionVOS))
             this.$router.push("/home");
           })
           .catch(res => {

@@ -10,16 +10,10 @@
       <!-- 搜索 -->
       <el-row :gutter="20">
         <el-col :span="7">
-          <el-input placeholder="请输入姓名"
-          v-model="dto.user.name" clearable
-          @clear="click1"
-          >
-            <el-button slot="append" icon="el-icon-search" @click="click1"></el-button>
-          </el-input>
+          <el-input placeholder="请输入姓名" v-model="dto.user.name" clearable @clear="click1"></el-input>
         </el-col>
-        <el-col :span="4">
-          <el-button type="primary"  v-has="200">添加用户</el-button>
-        </el-col>
+        <el-button type="primary" @click="click1">搜索用户</el-button>
+        <el-button type="primary" v-has="user-add">添加用户</el-button>
       </el-row>
       <!-- 表格 -->
       <el-table :data="tableData.userList" border stripe>
@@ -55,7 +49,7 @@
         :current-page="dto.pagenum"
         :page-sizes="[10, 15, 20, 50]"
         :page-size="dto.size"
-         layout="total, sizes, prev, pager, next, jumper" 
+        layout="total, sizes, prev, pager, next, jumper"
         :total="dto.total"
       ></el-pagination>
     </el-card>
@@ -74,8 +68,8 @@ export default {
       },
       dto: {
         user: {
-          id:null,
-          name:null
+          id: null,
+          name: null
         },
         total: 0,
         pagenum: 1,
@@ -119,8 +113,6 @@ export default {
           this.tableData = res.data.data;
           this.dto.total = res.data.data.total;
           console.log("this.tableData", this.tableData);
-          this.dto.pagenum = 1
-          this.dto.size = 10
         })
         .catch(res => {
           this.$message.error("网络繁忙");
