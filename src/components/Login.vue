@@ -23,8 +23,15 @@
           <el-button type="info" @click="resetLoginFrom">重置</el-button>
         </el-form-item>
       </el-form>
+      
     </div>
+  <div class="tip">普通用户账号：normal  密码：123456
   </div>
+  <div class="tip1">超级用户账号：root 密码：123456
+  </div>
+  </div>
+
+  
 </template>
 
 <script>
@@ -96,7 +103,20 @@ export default {
   top: 25%;
   transform: translate(-50%);
 }
-
+.tip{
+    width:400px;height:25px;  /*设置div的大小*/
+    font-size:20px;
+    border:4px solid #beceeb; /*为了便于观察，显示出边框*/
+    display:table-cell; 
+    vertical-align:bottom;
+}
+.tip1{
+  width:400px;height:25px;  /*设置div的大小*/
+    font-size:20px;
+    border:4px solid #beceeb; /*为了便于观察，显示出边框*/
+    display:table-cell; 
+    vertical-align:bottom;
+}
 .avatar_box {
   height: 130px;
   width: 130px;

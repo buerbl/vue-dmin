@@ -22,8 +22,7 @@
       <el-table border stripe>
         <el-table-column type="index"></el-table-column>
         <el-table-column label="姓名" prop></el-table-column>
-        <el-table-column label="姓名" prop></el-table-column>
-        <el-table-column label="姓名" prop></el-table-column>
+        <el-table-column label="角色名称" prop></el-table-column>
       </el-table>
 
       <el-pagination
