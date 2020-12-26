@@ -5,7 +5,15 @@
       <div>
         <span>权限管理系统</span>
       </div>
-      <el-button type="info" @click="logout">退出</el-button>
+      <div>
+        <el-input
+          autosize
+          v-model="input"
+          :disabled="true"
+          class="my-input"
+        ></el-input>
+        <el-button type="info" @click="logout">退出</el-button>
+      </div>
     </el-header>
     <!-- 页面主体区域 -->
     <el-container>
@@ -18,18 +26,22 @@
           unique-opened
           router
         >
-          <el-submenu :index="item.pid + ''" v-for="item in menuList" :key="item.pid">
+          <el-submenu
+            :index="item.pid + ''"
+            v-for="item in menuList"
+            :key="item.pid"
+          >
             <template slot="title">
               <i class="el-icon-location"></i>
-              <span>{{item.typeName}}</span>
+              <span>{{ item.typeName }}</span>
             </template>
             <!-- <el-menu-item index="user">用户列表</el-menu-item> -->
             <el-menu-item
-              :index="subItem.typePath +''"
+              :index="subItem.typePath + ''"
               v-for="subItem in item.children"
               :key="subItem.pid"
             >
-              <span>{{subItem.typeName}}</span>
+              <span>{{ subItem.typeName }}</span>
             </el-menu-item>
           </el-submenu>
           <!-- <el-submenu index="2">
@@ -55,7 +67,8 @@ export default {
   data() {
     return {
       // 左侧菜单数据
-      menuList: []
+      menuList: [],
+      input: sessionStorage.getItem("username"),
     };
   },
   created() {
@@ -72,12 +85,19 @@ export default {
       btnPermissionsStr = JSON.parse(btnPermissionsStr);
       this.menuList = btnPermissionsStr;
       console.log("menuList", this.menuList);
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="less" scoped>
+// css
+.my-input {
+  color: #66757f;
+  display: inline-block;
+  min-width: 20px;
+  max-width: 70px;
+}
 .el-header {
   background-color: #373c41;
   display: flex;

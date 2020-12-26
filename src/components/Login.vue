@@ -42,16 +42,7 @@ export default {
         name: "root",
         password: "123456"
       },
-      rules: {
-        name: [
-          { required: true, message: "请输入用户名", trigger: "blur" },
-          { min: 3, max: 15, message: "长度在 3 到 15 个字符", trigger: "blur" }
-        ],
-        password: [
-          { required: true, message: "请输入密码", trigger: "blur" },
-          { min: 3, max: 15, message: "长度在 3 到 15 个字符", trigger: "blur" }
-        ]
-      }
+      
     };
   },
   methods: {
@@ -68,18 +59,13 @@ export default {
           .then(res => {
             console.log("response", res);
             if (res.data.code != 200) {
-              return this.$message.error("登录失败");
+              return ;
             }
-            this.$message.success("登录成功");
-            console.log("sssss", res.data)
             window.sessionStorage.setItem("token", res.data.data.session);
+            window.sessionStorage.setItem("username", res.data.data.username);
             window.sessionStorage.setItem("btnPermissions", JSON.stringify(res.data.data.permissionVOS))
             this.$router.push("/home");
           })
-          .catch(res => {
-            console.log("error", res);
-            this.$message.error("服务器繁忙");
-          });
       });
     }
   }
