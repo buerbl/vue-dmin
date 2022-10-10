@@ -66,3 +66,8 @@ Snipaste
 ## 自定义指令
 
 btnPermissions.js -》 main.js
+
+## 部署目录
+
+/srv/web1/html
+注意main.js文件访问的后端地址

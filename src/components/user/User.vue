@@ -30,7 +30,7 @@
         <el-table-column label="性别" prop="sexStr"></el-table-column>
         <el-table-column label="密码" prop="password"></el-table-column>
         <el-table-column label="地址" prop="adress"></el-table-column>
-
+       
         <!-- <el-table-column
           label="角色"
           prop="rolesuser"
@@ -47,6 +47,8 @@
             >
           </template>
         </el-table-column>
+         <el-table-column label="创建时间" prop="ctime"></el-table-column>
+
         <el-table-column label="操作" width="130">
           <template slot-scope="scope">
             <!--修改按钮-->

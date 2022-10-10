@@ -16,10 +16,10 @@
           <el-input v-model="loginFrom.name" prefix-icon="el-icon-search"></el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input type="password" v-model="loginFrom.password" prefix-icon="el-icon-search"></el-input>
+          <el-input type="password" v-model="loginFrom.password" prefix-icon="el-icon-search" @keyup.enter.native="login"></el-input>
         </el-form-item>
         <el-form-item class="btn">
-          <el-button type="primary" @click="login">登录</el-button>
+          <el-button type="primary" @click="login" >登录</el-button>
           <el-button type="info" @click="resetLoginFrom">重置</el-button>
         </el-form-item>
       </el-form>
